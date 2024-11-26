@@ -28,14 +28,14 @@ The request body should be a JSON object with the following fields:
 ### **1. template**
 - **Type**: `string`
 - **Description**: The unique identifier of the template to use for document creation.
-- **Example**: `"13891pUEAUsWlpAFDMMxySWfftKGmn0xPYgTw6ocJWNc"`
+- **Example**: `"g7df8gsdf465g4df8g7dfgsdfg7sdf8gdsf5fd4g"`
 
 ---
 
 ### **2. template_name**
 - **Type**: `string`
 - **Description**: The name of the templatized document after creation.
-- **Example**: `"lenka.stefkovicova_01-09-25_Mandate_Agreement_VL-SK_1.0"`
+- **Example**: `"Mandate agreement - John Doe - 2024-04-10"`
 
 ---
 
@@ -47,7 +47,7 @@ The request body should be a JSON object with the following fields:
   [
       {
           "field": "documentDate",
-          "value": "9/21/2025"
+          "value": "10.04.2024"
       },
       {
           "field": "repPartyID",
@@ -65,15 +65,14 @@ The request body should be a JSON object with the following fields:
   ```json
   [
       {
-          "email": "lenka.stefkovicova@vacuumlabs.com",
-          "name": "miro skovajsa",
+          "email": "jane.doe@company.com",
+          "name": "Jane Doe",
           "position": "CEO",
-          "company": "vacuumlabs s.r.o."
+          "company": "Company Ltd."
       },
       {
-          "email": "lenka.stefkovicova3@gmail.com",
-          "name": "Lenka",
-          "company": "Lenka Štefkovičová"
+          "email": "john.doe@gmail.com",
+          "name": "John Doe",
       }
   ]
   ```
@@ -90,14 +89,14 @@ The request body should be a JSON object with the following fields:
 ### **6. spadog_user**
 - **Type**: `string`
 - **Description**: User identifier for authentication within the Sparring Dog.
-- **Example**: `"google-oauth2|116385764127171084425"`
+- **Example**: `"15756496-75d5-4769-95fd-bc9ca0d137a5"`
 
 ---
 
 ### **7. project_token**
 - **Type**: `string`
 - **Description**: Token identifying the project associated with this document creation.
-- **Example**: `"ec1831b8-1c71-4779-8bf8-275623398567"`
+- **Example**: `"aa60754b-9ed1-4cd2-9047-12399b0637ee"`
 
 ---
 
@@ -109,19 +108,19 @@ curl -X POST https://api.example.com/v1/documents/create \
 -H "Content-Type: application/json" \
 -d '[
     {
-        "template": "13891pUEAUsWlpAFDMMxySWfftKGmn0xPYgTw6ocJWNc",
-        "template_name": "lenka.stefkovicova_01-09-25_Mandate_Agreement_VL-SK_1.0",
+        "template": "g7df8gsdf465g4df8g7dfgsdfg7sdf8gdsf5fd4g",
+        "template_name": "Mandate agreement - John Doe - 2024-04-10",
         "fields": [
-            {"field": "documentDate", "value": "9/21/2025"},
+            {"field": "documentDate", "value": "10.4.2024"},
             {"field": "repPartyID", "value": "46584838"}
         ],
         "signatories": [
-            {"email": "lenka.stefkovicova@vacuumlabs.com", "name": "miro skovajsa", "position": "CEO", "company": "vacuumlabs s.r.o."},
-            {"email": "lenka.stefkovicova3@gmail.com", "name": "Lenka", "company": "Lenka Štefkovičová"}
+            {"email": "jane.doe@company.com", "name": "Jane Doe", "position": "CEO", "company": "Company Ltd"},
+            {"email": "john.doe@gmail.com", "name": "John Doe"}
         ],
         "request_signatures": false,
-        "spadog_user": "google-oauth2|116385764127171084425",
-        "project_token": "ec1831b8-1c71-4779-8bf8-275623398567"
+        "spadog_user": "15756496-75d5-4769-95fd-bc9ca0d137a5",
+        "project_token": "aa60754b-9ed1-4cd2-9047-12399b0637ee"
     }
 ]'
 ```
